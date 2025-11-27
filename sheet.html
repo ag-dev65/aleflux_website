@@ -57,7 +57,7 @@
     document.getElementById("registrationForm").addEventListener("submit", function(event) {
       event.preventDefault();
 
-      const url = "https://docs.google.com/spreadsheets/d/1Vfd2noSaxcKzR3DJBs_V6BEyjednUcHEfoI6ymDVvgw/edit?gid=0#gid=0";
+      const url = "https://docs.google.com/spreadsheets/d/1Vfd2noSaxcKzR3DJBs_V6BEyjednUcHEfoI6ymDVvgw/edit?usp=drivesdk";
       const formData = new FormData();
       formData.append("name", document.getElementById("name").value);
       formData.append("phone", document.getElementById("phone").value);
