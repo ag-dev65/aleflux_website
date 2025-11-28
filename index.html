@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AFELUX Submission Form</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("K8BUTJdHnteaB6i--"); // Replace with your EmailJS public key
+    })();
+
+    function sendEmail(event) {
+      event.preventDefault();
+
+      emailjs.sendForm('service_njo1eob', 'template_i9cj8ql', event.target)
+        .then(() => {
+          alert("Form submitted successfully!");
+          event.target.reset();
+        }, (error) => {
+          alert("Failed to send message. Try again later.");
+          console.log(error);
+        });
+    }
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    form {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      background: #0077b6;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #023e8a;
+    }
+  </style>
+</head>
+<body>
+  <form onsubmit="sendEmail(event)">
+    <h2>AFELUX User Submission</h2>
+
+    <label for="name">Full Name</label>
+    <input type="text" name="name" id="name" required />
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" name="phone" id="phone" required />
+
+    <label for="image">Upload ID or Photo</label>
+    <input type="file" name="image" id="image" accept="image/*" required />
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
